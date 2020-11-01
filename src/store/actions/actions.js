@@ -7,11 +7,16 @@ export const incrementCartCounter = () => {
     };
 };
 
+export const addProductToCart = (product) => {
+    return {
+        type: 'ADD_PRODUCT',
+        payload: product
+    }
+};
 
-/**
- * cart
- * 
- * add route
- * 
- * display h1
- */
+export const removeProductFromCart = (product) => {
+    return {
+        type: "REMOVE_PRODUCT",
+        payload: product
+    }
+};

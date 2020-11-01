@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Catalog from '../catalog/catalog';
 import { Link } from 'react-router-dom';
 
 class Home extends Component {

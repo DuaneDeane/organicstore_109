@@ -7,6 +7,7 @@ class ProductService {
 
     async getProducts () {
         const resp = await axios.get(this.serverUrl + '/products');
+        console.log(resp);
         return resp.data;
     }
 }

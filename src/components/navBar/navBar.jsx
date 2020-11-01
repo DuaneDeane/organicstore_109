@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import "./navBar.css";
-import Catalog from '../catalog/catalog';
 import { Link } from "react-router-dom";
-import Cart from '../cart/cart';
-
+import { connect } from 'react-redux';
 
 class NavBar extends Component {
   render() {
@@ -32,14 +30,24 @@ class NavBar extends Component {
             <Link className="nav-link" to="/cart">Cart</Link>
           </li>
         </ul>
-        <form className="form-inline my-2 my-lg-0">
-          <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
-          <button className="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
-        </form>
+        <div className="form-inline my-2 my-lg-0">
+          <Link className="btn btn-outline-info my-2 my-sm-0" to="/cart">
+                <i className="fa fa-shopping-cart cart-icon" aria-hidden="true"></i>
+                View cart
+                <span className="badge badge-primary cart-badge">
+                {this.props.count}
+                </span>
+            </Link>
+        </div>
       </div>
     </nav>
     );
   }
 }
 
-export default NavBar;
+const mapStateToProps = (state) => {
+  return {
+    count: state.cart.length,
+  };
+};
+export default connect(mapStateToProps,null)(NavBar);
