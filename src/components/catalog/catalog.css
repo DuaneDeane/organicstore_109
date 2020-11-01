@@ -1,0 +1,28 @@
+.btn-category {
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    background-color: seashell;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 6px;
+    font-weight: bold;
+    color: cadetblue;
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.btn-category:hover {
+    background-color: #05314b;
+    cursor: pointer;
+}
+
+.categories {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.catalog-page{
+    margin-top: 10px;
+}
