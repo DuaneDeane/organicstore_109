@@ -1,14 +1,30 @@
-// reducer: a simple fin receives state and action and return a new state
+// reducer: a simple fn receives state and action and return a new state
 const cartProductsReducer = (state = [], action) => {
-  if (action.type === "ADD_PRODUCT") {
-    var copy = [...state];
-    copy.push(action.payload);
-    return copy;
-  } else if (action.type === "REMOVE_PRODUCT") {
-    return state.filter((pc) => pc.product.id !== action.payload.product.id);
-  }
+  switch (action.type) {
+    case "ADD_PRODUCT":
+      var copy = [...state];
 
-  return state;
+      var alreadyThere = false;
+
+      for (let i=0; i<copy.length; i++){
+        var item =copy[i];
+        if(action.payload.product.id === item.product.id){
+          item.quantity += action.payload.quantity;
+          alreadyThere = true;
+        }
+      }
+
+      if (!alreadyThere) {
+        copy.push(action.payload);
+      }
+      return copy;
+
+    case "REMOVE_PRODUCT":
+      return state.filter((pc) => pc.product.id !== action.payload.product.id);
+
+    default:
+      return state;
+  }
 };
 
 export default cartProductsReducer;

@@ -7,7 +7,8 @@ body {
     margin-left: 35px;
 }
 
-.prices h5, .prices h6 {
+.prices h5,
+.prices h6 {
     display: inline-block;
     width: 100px;
 }

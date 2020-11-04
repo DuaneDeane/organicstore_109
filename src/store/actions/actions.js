@@ -20,3 +20,10 @@ export const removeProductFromCart = (product) => {
         payload: product
     }
 };
+
+export const addTodo = (todoText) => {
+    return {
+        type: "ADD_TODO",
+        payload: todoText,
+    };
+};
